@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>rcp-c1</title>
+
+    <meta charset="utf-8">
+    <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+    
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=AM_HTMLorMML-full"></script>
+	<script src="ASCIIMathML.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<form id="inputForm">
+    <select name="analysisTypeSelect">
+        <option value="circularPlate">Circular Plates</option>
+        <option disabled=true value="flatPlate">Flat Plates</option>
+    </select>
+    <select name="caseSelect">
+        <option selected disabled style="display:none; visibility:hidden; height:0; font-size:0;">Select Loading</option>
+        <option value="case1">Case 1:Annular Uniform Line Load</option>
+        <option disabled=true value="case2">Case 2: Uniformly Distributed Pressure</option>
+        <option disabled=true value="case3">Case 3: Distributed Pressure Increasing Linearly from zero to z</option>
+        <option disabled=true value="case4">Case 4: Distributed Pressure Increasing Parabolically from zero to q</option>
+        <option disabled=true value="case5">Case 5: Uniform Line Moment</option>
+        <option disabled=true value="case6">Case 6: Externally Applied Slope on an Annuluso</option>
+        <option disabled=true value="case7">Case 7: Externally Applied Vertical Deflection </option>
+        <option disabled=true value="case8">Case 8: Uniform Temperature Differential Between Top and Bottom</option>
+        <option disabled=true value="case9">Case 9-33: Not Available</option>
+    </select>
+
+    <select name="subcaseSelect" onchange="if (this.selectedIndex) populateFields();">
+        <option selected disabled style="display:none; visibility:hidden; height:0; font-size:0;">Select Boundary Conditions</option>
+        <option value="subcase_1a">Subcase 1a: Outer Edge Simply Supported, Inner Edge Free </option>
+		<option disabled=true value="subcase_1b">Subcase 1b: Outer Edge Simply Supported, Inner Edge Guided </option>
+		<option disabled=true value="subcase_1c">Subcase 1c: Outer Edge simply supported, inner edge simply supported </option>
+		<option disabled=true value="subcase_1d">Subcase 1d: Outer edge simply supported, inner edge fixed </option>
+		<option disabled=true value="subcase_1e">Subcase 1e: outer edge fixed, inner edge free </option>
+		<option disabled=true value="subcase_1f">Subcase 1f: outer edge fixed, inner edge guided </option>
+		<option disabled=true value="subcase_1g">Subcase 1g: outer edge fixed, inner edge simply supported </option>
+		<option disabled=true value="subcase_1h">Subcase 1h: outer edge fixed, inner edge fixed </option>
+		<option disabled=true value="subcase_1i">Subcase 1i: outer edge guided, inner edge simply supported </option>
+		<option disabled=true value="subcase_1j">Subcase 1j: outer edge guided, inner edge fixed </option>
+		<option disabled=true value="subcase_1k">Subcase 1k: outer edge free, inner edge simply supported </option>
+		<option disabled=true value="subcase_1l">Subcase 1l: outer edge free, inner edge fixed </option>
+    </select>
+    <br>
+    <br>
+    <div class="row">
+        <div class="form-group col-xs-2" id="userInputs"></div>
+    </div>
+
+</form>
+<ul id="exVarTest"></ul>
+    <ul id="eqList"></ul>
+	<h5>Plate Constants</h5>
+    <ul id="pc"> </ul>
+	<h5>Boundary Values</h5>
+    <ul id="bv"> </ul>
+	<h5>General Values</h5>
+	<ul id="gv"> </ul>
+	
+	<script src="rcp.js"></script>
+</html>
